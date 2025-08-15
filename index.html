@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreya Shrestha - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="nav-container">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <i class="fa-solid fa-folder" style="color: #74C0FC;"></i>
+                <span>Mode</span>
+                <div class="toggle-container">
+                    <input type="checkbox" id="modeToggle" />
+                    <label for="modeToggle" class="toggle">
+                        <span class="star">⭐</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Hamburger Menu Button -->
+            <div class="hamburger-menu">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link" id="connect">Connect</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            
+            <h2 class="section-title">A little about me ✨</h2>
+            <hr class="simple-divider simple-divider--full">
+            <div class="about-card">
+                <div class="about-content">
+                    <div class="about-text">
+                         <div class="about-actions">
+                        <div class="social-buttons">
+                            <a href="https://github.com/shreyashrestha99?tab=repositories" target="_blank" rel="noopener" class="social-btn github">
+                                <i class="fa-brands fa-github" style="color: #111212;"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/shreya-shrestha-ab4462324/" target="_blank" rel="noopener" class="social-btn linkedin">
+                                <i class="fa-brands fa-linkedin" style="color: #0c0d0d;"></i>
+                            </a>
+                            <a href="mailto:shresthashreya306@gmail.com" class="social-btn email">
+                                <i class="fa-solid fa-envelope" style="color: #050505;"></i>
+                            </a>
+                            
+                        </div>
+                        <div class="short-info">
+                            <span>📍 based in kathmandu | coffee over code | soft tech aesthetics</span>
+                        </div>
+                        <div class="bio-row">
+                            <div class="bio-text">
+                                <h3 class="no-animate">Hello! there. I am Shreya Shrestha.</h3>
+                                <p>A full stack developer and ui/ux designer who turns ideas into clean, interactive, and user-centered web experiences.</p>
+                                <div class="action-buttons">
+                                    <a href="https://github.com/shreyashrestha99?tab=repositories" target="_blank" rel="noopener" class="action-btn">
+                                        <i class="fa-solid fa-folder-open"></i>
+                                        <span>View Projects</span>
+                                    </a>
+                                    <a href="assets/shreya%20shrestha.cv.pdf" target="_blank" rel="noopener" class="action-btn">
+                                        <i class="fa-solid fa-download"></i>
+                                        <span>Download CV</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="profile-image">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <img src="images/picture7.png" alt="Shreya Shrestha">
+                                        </div>
+                                        <div class="back">
+                                            <div class="back-content">
+                                                <span>📍 based in Lalitpur</span>
+                                                <span>☕ coffee over code</span>
+                                                <span>✨ soft tech aesthetics</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="simple-divider simple-divider--full">
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section projects-section--compact">
+        <div class="container">
+            <div class="projects-header">
+                <h2>MY PROJECTS</h2>
+                <p>A selection of my design and development projects showcasing UI/UX and front-end skills.</p>
+            </div>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web-based Projects</button>
+                <button class="filter-btn" data-filter="code">Code-based Projects</button>
+                <button class="filter-btn" data-filter="design">UI/UX Design</button>
+            </div>
+
+            <div class="projects-container">
+                <button class="nav-btn nav-btn-left" id="navLeft">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                
+                <div class="projects-row">
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <img src="images/picture4.png" alt="Euphoria Makeup">
+                        </div>
+                        <div class="project-content">
+                            <h3>Euphoria Makeup E-commerce Website</h3>
+                            <p>A dynamic website made with Java EE, JSP, CRUD and MySQL following MVC architecture. beauty marketplace with admin controls, customer portal, and secure checkout.</p>
+                            <div class="project-buttons">
+                                <a href="project-euphoria.html" class="btn btn-primary">
+                                    <i class="fa-solid fa-eye"></i>
+                                    View Details
+                                </a>
+                                <a href="https://github.com/shreyashrestha99/Euphoria" target="_blank" rel="noopener" class="btn btn-secondary">
+                                    <i class="fa-solid fa-code"></i>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="web design">
+                        <div class="project-image">
+                            <img src="images/picture3.png" alt="Portfolio Design">
+                        </div>
+                        <div class="project-content">
+                            <h3>Portfolio Web UI/UX Design</h3>
+                            <p>Inspired by Notion & Pinterest. A minimal, full-stack portfolio with a modern developer vibe. Currently adding frontend and backend features.</p>
+                            <div class="project-buttons">
+                                <a href="project-portfolio.html" class="btn btn-primary">
+                                    <i class="fa-solid fa-eye"></i>
+                                    View Details
+                                </a>
+                                <a href="https://github.com/shreyashrestha99?tab=repositories" target="_blank" rel="noopener" class="btn btn-secondary">
+                                    <i class="fa-solid fa-code"></i>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="design">
+                        <div class="project-image">
+                            <img src="images/picture8.png" alt="Biruwa App">
+                        </div>
+                        <div class="project-content">
+                            <h3>Biruwa-UI/UX Design</h3>
+                            <p>A course-based e-commerce app that combines learning and plant shopping. Features include course enrollment, quizzes, chat, admin & user login, cart, and payment UI.</p>
+                            <div class="project-buttons">
+                                <a href="project-biruwa.html" class="btn btn-primary">
+                                    <i class="fa-solid fa-eye"></i>
+                                    View Details
+                                </a>
+                                <a href="https://github.com/shreyashrestha99?tab=repositories" target="_blank" rel="noopener" class="btn btn-secondary">
+                                    <i class="fa-solid fa-code"></i>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <img src="images/picture2.png" alt="Printer's Nepal">
+                        </div>
+                        <div class="project-content">
+                            <h3>Printer's Nepal E-commerce Website</h3>
+                            <p>A functional and visually appealing e-commerce website developed for a printer store. Built using html, css and js. Inspired by real websites like Cannon and Apple for layout and styling.</p>
+                            <div class="project-buttons">
+                                <a href="project-printers.html" class="btn btn-primary">
+                                    <i class="fa-solid fa-eye"></i>
+                                    View Details
+                                </a>
+                                <a href="https://github.com/shreyashrestha99/Printers-nepal-ecommerce" target="_blank" rel="noopener" class="btn btn-secondary">
+                                    <i class="fa-solid fa-code"></i>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="code">
+                        <div class="project-image">
+                            <img src="images/picture6.png" alt="Land Buying App">
+                        </div>
+                        <div class="project-content">
+                            <h3>Land Buying and bill generator</h3>
+                            <p>A Python-based console application that calculates land transaction costs, including taxes and fees, and generates a bill as a text file. The system uses file handling for data storage instead of a database.</p>
+                            <div class="project-buttons">
+                                <a href="project-land.html" class="btn btn-primary">
+                                    <i class="fa-solid fa-eye"></i>
+                                    View Details
+                                </a>
+                                <a href="https://github.com/shreyashrestha99/Land-rental-system" target="_blank" rel="noopener" class="btn btn-secondary">
+                                    <i class="fa-solid fa-code"></i>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="code">
+                        <div class="project-image">
+                            <img src="images/picture5.png" alt="NYC Data Analysis">
+                        </div>
+                        <div class="project-content">
+                            <h3>NYC 311 Data Analysis</h3>
+                            <p>Python to clean and analyze NYC 311 service request data by handling missing values, converting date columns, and calculating request closing times.</p>
+                            <div class="project-buttons">
+                                <a href="project-nyc311.html" class="btn btn-primary">
+                                    <i class="fa-solid fa-eye"></i>
+                                    View Details
+                                </a>
+                                <a href="https://github.com/shreyashrestha99?tab=repositories" target="_blank" rel="noopener" class="btn btn-secondary">
+                                    <i class="fa-solid fa-code"></i>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="nav-btn nav-btn-right" id="navRight">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <hr class="simple-divider simple-divider--full">
+     <!-- Contact Me Section (Added above About Me as requested) -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-card">
+                    <h3>Get In Touch</h3>
+                    <p>I'm always open to discussion about new opportunities, interesting projects, or just having a chat about technology and design. Feel free to reach out!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>shresthashreya306@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+977 986-123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Lalitpur, Nepal</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                    <div class="form-toggle">
+                        <button type="button" class="toggle-arrow" id="toggleForm">
+                            <i class="fa-solid fa-chevron-down"></i>
+                            <span>Show Contact Form</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <button type="button" class="close-btn" id="closeContactFormDesktop">
+                            <i class="fa-solid fa-times"></i>
+                        </button>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Your message..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-play"></i> Navigation</h4>
+                    <ul>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact me</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-phone"></i> Social Links</h4>
+                    <ul>
+                        <li><a href="https://github.com/shreyashrestha99?tab=repositories" target="_blank" rel="noopener">Github</a></li>
+                        <li><a href="https://www.linkedin.com/in/shreya-shrestha-ab4462324/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="mailto:shresthashreya306@gmail.com">G-mail</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-desktop"></i> Case Studies</h4>
+                    <ul>
+                        <li><a href="project-portfolio.html">Portfolio Website</a></li>
+                        <li><a href="project-biruwa.html">Biruwa mobile website</a></li>
+                        <li><a href="project-euphoria.html">Euphoria Makeup Website</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;2025-Shreya Shrestha</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Mobile Contact Form Overlay -->
+    <div class="contact-form-overlay" id="contactFormOverlay">
+        <div class="contact-form-mobile">
+            <button class="close-btn" id="closeContactForm">
+                <i class="fa-solid fa-times"></i>
+            </button>
+            <h3>Contact Form</h3>
+            <form class="contact-form" id="contactFormMobile">
+                <div class="form-group">
+                    <label for="nameMobile">Name</label>
+                    <input type="text" id="nameMobile" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailMobile">Email</label>
+                    <input type="email" id="emailMobile" name="email" placeholder="Your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="messageMobile">Message</label>
+                    <textarea id="messageMobile" name="message" rows="4" placeholder="Your message..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" title="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <script src="script.js"></script>
+</body>
+</html>

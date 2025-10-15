@@ -1,6 +1,5 @@
-// Smooth scrolling for navigation links
-document.addEventListener('DOMContentLoaded', function() {
-    // Dark/Light mode toggle functionality
+// Initialize mode toggle functionality
+function initializeModeToggle() {
     const modeToggle = document.getElementById('modeToggle');
     const body = document.body;
     
@@ -9,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
         modeToggle.checked = true;
+        updateModeText(true);
+    } else {
+        updateModeText(false);
     }
     
     // Toggle dark/light mode
@@ -16,32 +18,81 @@ document.addEventListener('DOMContentLoaded', function() {
         if (this.checked) {
             body.classList.add('dark-mode');
             localStorage.setItem('theme', 'dark');
+            updateModeText(true);
         } else {
             body.classList.remove('dark-mode');
             localStorage.setItem('theme', 'light');
+            updateModeText(false);
         }
     });
 
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('a[href^="#"]');
+    // Function to update mode text
+    function updateModeText(isDark) {
+        const modeText = document.querySelector('.nav-container span');
+        if (modeText) {
+            modeText.textContent = isDark ? 'Dark Mode' : 'Light Mode';
+        }
+    }
+}
+
+// Initialize hamburger menu functionality
+function initializeHamburgerMenu() {
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const navMenu = document.querySelector('.nav-menu');
     
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+    if (hamburgerMenu && navMenu) {
+        hamburgerMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a nav link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburgerMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!hamburgerMenu.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburgerMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+}
+
+// Initialize smooth scrolling for navigation links
+function initializeSmoothScrolling() {
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
 
-    // Project filtering functionality
+    // Handle Home link clicks to ensure proper navigation
+    document.querySelectorAll('a[href="index.html"]').forEach(homeLink => {
+        homeLink.addEventListener('click', function(e) {
+            // If we're already on the home page, just scroll to top
+            if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            // If we're on a project page, let the normal navigation happen
+        });
+    });
+}
+
+// Initialize project filtering functionality
+function initializeProjectFiltering() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
     
@@ -68,133 +119,138 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+}
 
-    // Contact form handling
-    const contactForm = document.querySelector('.form');
-    
+// Initialize contact form functionality
+function initializeContactForm() {
+    const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const message = formData.get('message');
-            
-            // Basic validation
-            if (!name || !email || !message) {
-                showNotification('Please fill in all fields', 'error');
-                return;
-            }
-            
-            if (!isValidEmail(email)) {
-                showNotification('Please enter a valid email address', 'error');
-                return;
-            }
-            
-            // Simulate form submission
-            showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-            
-            // Reset form
-            this.reset();
+            // Add your contact form logic here
+            alert('Thank you for your message! I will get back to you soon.');
         });
     }
+}
 
-    // Add scroll effect to header
-    const header = document.querySelector('.header');
-    let lastScrollTop = 0;
+// Initialize scroll to top functionality
+function initializeScrollToTop() {
+    const scrollToTopBtn = document.getElementById('scrollToTop');
     
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollToTopBtn) {
+        // Show button when scrolling down
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
         
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scrolling down
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            // Scrolling up
-            header.style.transform = 'translateY(0)';
+        // Scroll to top when clicked
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
+
+// Initialize sidebar toggle functionality
+function initializeSidebarToggle() {
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    
+    if (sidebarToggle && sidebar) {
+        sidebarToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+        });
+    }
+}
+
+// Initialize project navigation functionality
+function initializeProjectNavigation() {
+    const navLeft = document.getElementById('navLeft');
+    const navRight = document.getElementById('navRight');
+    const projectsRow = document.querySelector('.projects-row');
+    
+    if (navLeft && navRight && projectsRow) {
+        console.log('Navigation buttons found:', navLeft, navRight, projectsRow);
+        
+        // Check scroll position and update button states
+        function updateNavButtons() {
+            const isAtStart = projectsRow.scrollLeft === 0;
+            const isAtEnd = projectsRow.scrollLeft + projectsRow.clientWidth >= projectsRow.scrollWidth;
+            
+            navLeft.disabled = isAtStart;
+            navRight.disabled = isAtEnd;
+            
+            console.log('Button states updated:', { isAtStart, isAtEnd });
         }
         
-        lastScrollTop = scrollTop;
-    });
-
-    // Add animation on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    // Observe all sections for animation
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(section);
-    });
-
-    // Add hover effects to project cards
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.02)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-
-    // Add typing effect to the main heading
-    const mainHeading = document.querySelector('.about-text h3');
-    if (mainHeading) {
-        const text = mainHeading.textContent;
-        mainHeading.textContent = '';
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                mainHeading.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        };
-        
-        // Start typing effect when section comes into view
-        const headingObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(typeWriter, 500);
-                    headingObserver.unobserve(entry.target);
-                }
+        // Left navigation button
+        navLeft.addEventListener('click', function() {
+            console.log('Left button clicked');
+            const scrollAmount = 280 + 12; // card width + gap
+            projectsRow.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
             });
         });
         
-        headingObserver.observe(mainHeading);
-    }
-
-    // Add star button hover effects
-    const starButton = document.querySelector('.star');
-    if (starButton) {
-        starButton.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.2) rotate(15deg)';
+        // Right navigation button
+        navRight.addEventListener('click', function() {
+            console.log('Right button clicked');
+            const scrollAmount = 280 + 12; // card width + gap
+            projectsRow.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
         });
         
-        starButton.addEventListener('mouseleave', function() {
-            if (!body.classList.contains('dark-mode')) {
-                this.style.transform = 'scale(1) rotate(0deg)';
-            }
-        });
+        // Update button states on scroll
+        projectsRow.addEventListener('scroll', updateNavButtons);
+        
+        // Initial button state update
+        updateNavButtons();
+        
+        // Update button states on window resize
+        window.addEventListener('resize', updateNavButtons);
+    } else {
+        console.log('Navigation elements not found:', { navLeft, navRight, projectsRow });
     }
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing functions...');
+    
+    // Initialize mode toggle
+    initializeModeToggle();
+    
+    // Initialize hamburger menu
+    initializeHamburgerMenu();
+    
+    // Initialize smooth scrolling
+    initializeSmoothScrolling();
+    
+    // Initialize project filtering
+    initializeProjectFiltering();
+    
+    // Initialize contact form
+    initializeContactForm();
+    
+    // Initialize scroll to top
+    initializeScrollToTop();
+    
+    // Initialize sidebar toggle
+    initializeSidebarToggle();
+    
+    // Initialize project navigation
+    initializeProjectNavigation();
+    
+    console.log('All functions initialized');
 });
 
 // Utility functions
@@ -316,26 +372,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Add loading animation
-window.addEventListener('load', function() {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
-    
-    setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
-});
-
-// Add parallax effect to banner
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const banner = document.querySelector('.banner');
-    
-    if (banner) {
-        const rate = scrolled * -0.3;
-        banner.style.transform = `translateY(${rate}px)`;
-    }
-});
+// Disable parallax effect on banner (keep fixed/static)
 
 // Add counter animation for statistics (if you want to add them later)
 function animateCounter(element, target, duration = 2000) {
@@ -380,29 +417,3 @@ document.addEventListener('keydown', function(e) {
         }
     }
 });
-
-// Mobile Hamburger Menu
-const hamburgerMenu = document.querySelector('.hamburger-menu');
-const navMenu = document.querySelector('.nav-menu');
-if (hamburgerMenu && navMenu) {
-    hamburgerMenu.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-    
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            hamburgerMenu.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!hamburgerMenu.contains(e.target) && !navMenu.contains(e.target)) {
-            hamburgerMenu.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
-    });
-}

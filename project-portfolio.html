@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website – Project Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cute Loader -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-text">LOADING...</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="nav-container">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <i class="fa-solid fa-folder" style="color: #74C0FC;"></i>
+                <span>Mode</span>
+                <div class="toggle-container">
+                    <input type="checkbox" id="modeToggle" />
+                    <label for="modeToggle" class="toggle">
+                        <span class="star">⭐</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="hamburger-menu">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#projects" class="nav-link">Project</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Connect</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="case-study">
+        <div class="container">
+            <div class="case-layout">
+                <article class="case-content">
+                    <h1>Case Study: Portfolio Website</h1>
+
+                    <section id="overview">
+                        <h2>1. Project Overview</h2>
+                        <p><strong>Project Name:</strong> Personal Portfolio</p>
+                        <p><strong>Type:</strong> Responsive website (UI/UX + Front‑end)</p>
+                        <p><strong>Technologies:</strong> HTML, CSS, JavaScript, Font Awesome</p>
+                        <p><strong>Purpose:</strong> Present projects and skills in a clean, developer‑friendly style.</p>
+                        <h3>Goals</h3>
+                        <ul>
+                            <li>Fast, accessible, and responsive</li>
+                            <li>Easy navigation with fixed header and mobile menu</li>
+                            <li>Simple projects filtering and smooth anchors</li>
+                        </ul>
+                    </section>
+
+                    <section id="problem">
+                        <h2>2. Problem Statement</h2>
+                        <p>Many portfolios are slow or cluttered. The aim was to design a minimal, performant, and easy‑to‑scan portfolio that works well on mobile and desktop.</p>
+                    </section>
+
+                    <section id="audience">
+                        <h2>3. Target Audience</h2>
+                        <ul>
+                            <li>Recruiters and hiring managers</li>
+                            <li>Peers and collaborators</li>
+                            <li>General audience exploring past work</li>
+                        </ul>
+                    </section>
+
+                    <section id="research">
+                        <h2>4. Research & Inspiration</h2>
+                        <ul>
+                            <li>Notion and Pinterest visuals for clean grids and cards</li>
+                            <li>Accessibility guidelines for color and keyboard navigation</li>
+                            <li>Micro‑interactions for hover and scroll reveals</li>
+                        </ul>
+                    </section>
+
+                    <section id="methodology">
+                        <h2>5. Methodology</h2>
+                        <ul>
+                            <li>Wireframe → component design → build</li>
+                            <li>Mobile‑first responsive CSS</li>
+                            <li>Iterative polish: dark mode, animations, and sticky nav</li>
+                        </ul>
+                    </section>
+
+                    <section id="features">
+                        <h2>6. Features</h2>
+                        <table class="case-table">
+                            <thead><tr><th>Feature</th><th>Implementation</th></tr></thead>
+                            <tbody>
+                                <tr><td>Fixed Header</td><td>Header stays visible; body offset prevents overlap</td></tr>
+                                <tr><td>Mobile Menu</td><td>Hamburger toggles persistent nav</td></tr>
+                                <tr><td>Projects Filter</td><td>Buttons filter cards by category</td></tr>
+                                <tr><td>Contact Form</td><td>Simple form with PHP endpoint</td></tr>
+                                <tr><td>Dark Mode</td><td>Toggle with localStorage</td></tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section id="screenshots">
+                        <h2>7. Screens</h2>
+                        <div class="project-image" style="max-width: 920px; margin: 12px 0;">
+                    <img src="images/picture3.png" alt="Portfolio UI" />
+                </div>
+                    </section>
+
+                    <section id="outcome">
+                        <h2>8. Outcome</h2>
+                        <ul>
+                            <li>Clean, responsive portfolio with smooth UX</li>
+                            <li>Clear content hierarchy and fast navigation</li>
+                        </ul>
+                    </section>
+
+                    <section id="lessons">
+                        <h2>9. Lessons</h2>
+                        <ul>
+                            <li>Small UI details greatly impact perceived quality</li>
+                            <li>Performance and accessibility are essential</li>
+                        </ul>
+                    </section>
+
+                    <section id="cta">
+                        <div class="project-buttons" style="margin-top: 16px;">
+                        <a href="https://github.com/shreyashrestha99?tab=repositories" target="_blank" rel="noopener" class="btn btn-secondary">Code</a>
+                        <a href="index.html#projects" class="btn btn-primary">Back</a>
+                    </div>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" title="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-play"></i> Navigation</h4>
+                    <ul>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact me</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-phone"></i> Social Links</h4>
+                    <ul>
+                        <li><a href="https://github.com/shreyashrestha99?tab=repositories" target="_blank" rel="noopener">Github</a></li>
+                        <li><a href="https://www.linkedin.com/in/shreya-shrestha-ab4462324/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="mailto:shresthashreya306@gmail.com">G-mail</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-desktop"></i> Case Studies</h4>
+                    <ul>
+                        <li><a href="project-portfolio.html">Portfolio Website</a></li>
+                        <li><a href="project-biruwa.html">Biruwa mobile website</a></li>
+                        <li><a href="project-euphoria.html">Euphoria Makeup Website</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;2025-Shreya Shrestha</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    </body>
+    </html>
